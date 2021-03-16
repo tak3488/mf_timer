@@ -1,3 +1,20 @@
+// Main functions
+const setTimer = () => {
+    const timerForm: HTMLInputElement = document.getElementById('timerForm') as HTMLInputElement
+    const time: number = Number(timerForm.value)
+    const selectForm: HTMLInputElement = document.getElementById('selectForm') as HTMLInputElement
+    const selected: number = Number(selectForm.value)
+    const schedule: Date = new Date(Date.now() + time*60*1000)
+    const targetElement: Element = document.getElementById('newElement') as Element
+    const msg: string = `<p>${schedule.getHours()}:${schedule.getMinutes()}:${schedule.getSeconds()}に"${optionValues[selected]}"をクリックします</p>`
+    targetElement.innerHTML = msg
+    setTimeout(()=>clickButton(selected), time*60*1000)
+}
+const clickButton = (selected: number) => {
+    const targetButton: HTMLLinkElement = document.getElementsByClassName('attendance-card-time-stamp-button')[selected] as HTMLLinkElement
+    targetButton.click()
+}
+
 // Create new element
 const timerStyle: string = 'width:27px;'
 const timer: string = `<input style="${timerStyle}" id="timerForm"></input>分後に`
@@ -15,20 +32,3 @@ const newElement: string = `<div style="${newElementStyle}" id="newElement">${ti
 const leftElement: HTMLElement = document.getElementById('kt-attendance-card-time-stamp') as HTMLElement
 leftElement.insertAdjacentHTML('afterend',newElement)
 leftElement.style.borderRight = "1px solid #d4d8dd"
-
-// Main functions
-const setTimer = () => {
-    const timerForm: HTMLInputElement = document.getElementById('timerForm') as HTMLInputElement
-    const time: number = Number(timerForm.value)
-    const selectForm: HTMLInputElement = document.getElementById('selectForm') as HTMLInputElement
-    const selected: number = Number(selectForm.value)
-    const schedule: Date = new Date(Date.now() + time*60*1000)
-    const targetElement: Element = document.getElementById('newElement') as Element
-    const msg: string = `<p>${schedule.getHours()}:${schedule.getMinutes()}:${schedule.getSeconds()}に"${optionValues[selected]}"をクリックします</p>`
-    targetElement.innerHTML = msg
-    setTimeout(()=>clickButton(selected), time*60*1000)
-}
-const clickButton = (selected: number) => {
-    const targetButton: HTMLLinkElement = document.getElementsByClassName('attendance-card-time-stamp-button')[selected] as HTMLLinkElement
-    targetButton.click()
-}
