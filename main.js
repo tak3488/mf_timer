@@ -1,21 +1,4 @@
 "use strict";
-// Create new element
-var timerStyle = 'width:27px;';
-var timer = "<input style=\"" + timerStyle + "\" id=\"timerForm\"></input>\u5206\u5F8C\u306B";
-var optionValues = ["出勤", "退勤", "休憩", "戻り"];
-var options = "";
-for (var i in optionValues)
-    options += "<option value=\"" + i + "\">" + optionValues[i] + "</option>";
-var selectStyle = 'height: 27px;';
-var select = "<select style=\"" + selectStyle + "\" id=\"selectForm\">" + options + "</select>\u3092\u30AF\u30EA\u30C3\u30AF<br>";
-var buttonStyle = 'margin-left: 150px; margin-top: 10px; background: steelblue; color: white;';
-var button = "<button onclick=\"setTimer()\" id=\"button\" style=\"" + buttonStyle + "\">\u30BB\u30C3\u30C8</button>";
-var newElementStyle = 'display: inline-block; vertical-align: middle; padding-left: 16px;';
-var newElement = "<div style=\"" + newElementStyle + "\" id=\"newElement\">" + timer + select + button + "</div>";
-// Set new element and add border
-var leftElement = document.getElementById('kt-attendance-card-time-stamp');
-leftElement.insertAdjacentHTML('afterend', newElement);
-leftElement.style.borderRight = "1px solid #d4d8dd";
 // Main functions
 var setTimer = function () {
     var timerForm = document.getElementById('timerForm');
@@ -32,3 +15,22 @@ var clickButton = function (selected) {
     var targetButton = document.getElementsByClassName('attendance-card-time-stamp-button')[selected];
     targetButton.click();
 };
+// Create new element
+var timerStyle = 'width:27px;';
+var timer = "<input style=\"" + timerStyle + "\" id=\"timerForm\"></input>\u5206\u5F8C\u306B";
+var optionValues = ["出勤", "退勤", "休憩", "戻り"];
+var options = "";
+for (var i in optionValues)
+    options += "<option value=\"" + i + "\">" + optionValues[i] + "</option>";
+var selectStyle = 'height: 27px;';
+var select = "<select style=\"" + selectStyle + "\" id=\"selectForm\">" + options + "</select>\u3092\u30AF\u30EA\u30C3\u30AF<br>";
+var buttonStyle = 'margin-left: 150px; margin-top: 10px; background: steelblue; color: white;';
+var button = "<button id=\"button\" style=\"" + buttonStyle + "\">\u30BB\u30C3\u30C8</button>";
+var newElementStyle = 'display: inline-block; vertical-align: middle; padding-left: 16px;';
+var newElement = "<div style=\"" + newElementStyle + "\" id=\"newElement\">" + timer + select + button + "</div>";
+// Set new element and add border
+var leftElement = document.getElementById('kt-attendance-card-time-stamp');
+leftElement.insertAdjacentHTML('afterend', newElement);
+leftElement.style.borderRight = "1px solid #d4d8dd";
+var targetButton = document.getElementById('button');
+targetButton.addEventListener('click', setTimer);

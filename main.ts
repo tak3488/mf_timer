@@ -24,7 +24,7 @@ for(var i in optionValues)options+=`<option value="${i}">${optionValues[i]}</opt
 const selectStyle: string = 'height: 27px;'
 const select: string = `<select style="${selectStyle}" id="selectForm">${options}</select>をクリック<br>`
 const buttonStyle: string = 'margin-left: 150px; margin-top: 10px; background: steelblue; color: white;'
-const button: string = `<button onclick="setTimer()" id="button" style="${buttonStyle}">セット</button>`
+const button: string = `<button id="button" style="${buttonStyle}">セット</button>`
 const newElementStyle: string = 'display: inline-block; vertical-align: middle; padding-left: 16px;'
 const newElement: string = `<div style="${newElementStyle}" id="newElement">${timer}${select}${button}</div>`
 
@@ -32,3 +32,5 @@ const newElement: string = `<div style="${newElementStyle}" id="newElement">${ti
 const leftElement: HTMLElement = document.getElementById('kt-attendance-card-time-stamp') as HTMLElement
 leftElement.insertAdjacentHTML('afterend',newElement)
 leftElement.style.borderRight = "1px solid #d4d8dd"
+const targetButton: HTMLElement = document.getElementById('button') as HTMLElement
+targetButton.addEventListener('click',setTimer)
