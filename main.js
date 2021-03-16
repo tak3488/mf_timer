@@ -7,7 +7,7 @@ var options = "";
 for (var i in optionValues)
     options += "<option value=\"" + i + "\">" + optionValues[i] + "</option>";
 var selectStyle = 'height: 27px;';
-var select = "<select style=\"" + selectStyle + "\" id=\"selectForm\"><option value=\"0\">\u51FA\u52E4</option><option value=\"1\">\u9000\u52E4</option><option value=\"2\">\u4F11\u61A9</option><option value=\"3\">\u623B\u308A</option></select>\u3092\u30AF\u30EA\u30C3\u30AF<br>";
+var select = "<select style=\"" + selectStyle + "\" id=\"selectForm\">" + options + "</select>\u3092\u30AF\u30EA\u30C3\u30AF<br>";
 var buttonStyle = 'margin-left: 150px; margin-top: 10px; background: steelblue; color: white;';
 var button = "<button onclick=\"setTimer()\" id=\"button\" style=\"" + buttonStyle + "\">\u30BB\u30C3\u30C8</button>";
 var newElementStyle = 'display: inline-block; vertical-align: middle; padding-left: 16px;';

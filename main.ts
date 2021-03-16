@@ -5,7 +5,7 @@ const optionValues = ["出勤","退勤","休憩","戻り"]
 let options = ""
 for(var i in optionValues)options+=`<option value="${i}">${optionValues[i]}</option>`
 const selectStyle: string = 'height: 27px;'
-const select: string = `<select style="${selectStyle}" id="selectForm"><option value="0">出勤</option><option value="1">退勤</option><option value="2">休憩</option><option value="3">戻り</option></select>をクリック<br>`
+const select: string = `<select style="${selectStyle}" id="selectForm">${options}</select>をクリック<br>`
 const buttonStyle: string = 'margin-left: 150px; margin-top: 10px; background: steelblue; color: white;'
 const button: string = `<button onclick="setTimer()" id="button" style="${buttonStyle}">セット</button>`
 const newElementStyle: string = 'display: inline-block; vertical-align: middle; padding-left: 16px;'
